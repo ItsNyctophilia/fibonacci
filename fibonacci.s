@@ -10,7 +10,7 @@ octal:
 
 	.globl format
 format:
-	.asciz	"%d\n"
+	.asciz	"%lu\n"
 
 	.globl inv_err_str
 inv_err_str:
@@ -50,12 +50,9 @@ fib:
 	mov	rsi, rax			# move value to print into rsi
 	xor	al, al				# zero al before printf call
 	call	printf				# printf("%d\n", fib_num);
-	
-	
+
 	xor	rax, rax			# zero out return register
 	ret					# return 0; (SUCCESS)
-
-	
 
 	.globl invocation_err
 invocation_err:
