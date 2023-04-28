@@ -1,0 +1,60 @@
+\documentclass{article}
+
+\title{Fibonacci}
+\author{Dakota Kellogg, James Viner, Roberthon Meyers}
+\date{}
+
+% Referenced https://stackoverflow.com/a/21344989
+\newcommand{\code}[1]{\textcolor{SkyBlue}{\texttt{#1}}}
+\newcommand{\co}[1]{\textcolor{red}{\texttt{#1}}}
+
+\usepackage[dvipsnames]{xcolor}
+% Referenced https://tex.stackexchange.com/a/351969
+\usepackage{fancyvrb}
+
+\begin{document}
+
+\maketitle
+
+\section*{Project Summary}
+The task is to write a program in x86 assembly language that uses the first command-line parameter as a number N from 0 through 100. The program should print out F(N), in hexadecimal. 
+
+\section*{Features Targeted}
+
+\subsubsection*{Design Plan, Test Plan, and Write up using \LaTeX}
+Write the write up, test plan, and design plan using \TeX~or \LaTeX~language
+(be sure to include the source files).
+
+\subsubsection*{Man page}
+Write a \co{man(1)} page to document the program.
+
+\subsubsection*{Octal output}
+Add a command-line option \code{-o} for octal output.  
+
+\subsubsection*{Decimal output}
+add a command-line option \code{-d} for decimal output up to f(100)/f(300)
+
+\pagebreak
+\section*{Architecture}
+The code consists of three main parts, processing of options, calculation of number, and printing of the number.
+
+\section*{User Interface}
+\noindent
+Uses the CLI. The user can enter options that affect the behavior of the
+program. The user must enter a mandatory command during program invocation. 
+
+\section*{Approach}
+\begin{enumerate}
+	\item Review Fibonacci sequence 
+	\item Sketch out command line input portion
+	\item Sketch out Fibonacci calculation portion
+        \item Sketch out printing portion 
+        \item Implement options for extra features 
+        \item Review code for extra features
+        \item Implement translation between binary to octal/decimal
+	\item Review completed code with group
+	\item Implement discussed changes
+	\item Create post-project write-ups
+\end{enumerate}
+
+\end{document}
