@@ -18,7 +18,7 @@ format_least_sig:
 	
 	.globl o_format_most_sig
 o_format_most_sig:
-	.asciz	"0o%.0lo "
+	.asciz	"0o%.0lo"
 
 	.globl o_format_least_sig
 o_format_least_sig:
