@@ -58,7 +58,7 @@ arg2:
 	mov	rdi, QWORD PTR[rsi+16]		# argv[2] into rdi
 	sub	rsp, 8				# Create temp pointer on stack
 	mov	rsi, rsp			# rsp points to rsi
-	mov	rdx, 10			# base 10 conversion
+	mov	rdx, 10				# base 10 conversion
 	call	strtol				# strol(argv[1], &err, 10);
 	pop	rsi				# pop temp variable off stack to rsi
 
@@ -72,7 +72,7 @@ arg1:
 	mov	rdi, QWORD PTR[rsi+8]		# argv[1] into rdi
 	sub	rsp, 8				# Create temp pointer on stack
 	mov	rsi, rsp			# rsp points to rsi
-	mov	rdx, 10			# base 10 conversion
+	mov	rdx, 10				# base 10 conversion
 	call	strtol				# strol(argv[1], &err, 10);
 	pop	rsi				# pop temp variable off stack to rsi
 
@@ -131,7 +131,7 @@ hex_print:					# default: hex printing
 	push	rsi				# preserve lower-order bits of num
 
 	lea	rdi, [rip+format_most_sig]	# load format string for printf
-	mov	rsi, r8			# move value to print into rsi
+	mov	rsi, r8				# move value to print into rsi
 	xor	al, al				# zero al before printf call
 	call	printf				# print upper order bits
 
@@ -148,12 +148,12 @@ octal_print:
 	shl	r8				# move msb of lsp to lsb of msp
 						# (most/least significant bit/part)
 	mov	rbx, rsi			# move rsi into rbx as tmp register
-	shr	rbx, 63			# bitshift all but msb of rbx
-	or	r8, rbx			# account for 64th bit being a part of 1st
+	shr	rbx, 63				# bitshift all but msb of rbx
+	or	r8, rbx				# account for 64th bit being a part of 1st
 						# octet of msp
 
 	lea	rdi, [rip+o_format_most_sig]	# load format string for printf
-	mov	rsi, r8			# move value to print into rsi
+	mov	rsi, r8				# move value to print into rsi
 	xor	al, al				# zero al before printf call
 	call	printf				# print upper order bits
 
