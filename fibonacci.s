@@ -130,9 +130,6 @@ post_fib:					# used for nums 0/1 for explicit printing
 	
 	cmp	r12, 8				# case: octal printing
 	je	octal_print
-	
-	cmp	r12, 10			# case: decimal printing
-	je	decimal_print
 
 hex_print:					# default: hex printing
 
@@ -174,8 +171,6 @@ octal_print:
 
 	xor	al, al				# zero al before printf call
 	call	printf
-
-decimal_print:
 
 exit_success:
 
