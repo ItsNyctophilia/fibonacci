@@ -1,9 +1,5 @@
 .intel_syntax	noprefix
 
-	.globl decimal
-decimal:
-	.asciz	"-d"
-
 	.globl octal
 octal:
 	.asciz	"-o"
@@ -26,7 +22,7 @@ o_format_least_sig:
 
 	.globl inv_err_str
 inv_err_str:
-	.asciz "%s [-o|-d] num\n"
+	.asciz "%s [-o] num\n"
 
 	.globl num_clamp_err_str
 num_clamp_err_str:

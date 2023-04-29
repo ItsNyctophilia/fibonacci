@@ -16,7 +16,7 @@ function check_output {
 
 # TC6 No Command-line Arguments
 timeout 5 $PROGRAM > $OUT
-check_output "No Command-line Arguments" "$PROGRAM [-o|-d] num"
+check_output "No Command-line Arguments" "$PROGRAM [-o] num"
 
 # TC7 Invalid Command-line Arguments
 timeout 5 $PROGRAM -2 > $OUT
@@ -26,7 +26,7 @@ timeout 5 $PROGRAM 101 > $OUT
 check_output "Command-line Argument High" "Number must be between 0-100"
 
 timeout 5 $PROGRAM notanumber > $OUT
-check_output "Command-line Argument NAN" "$PROGRAM [-o|-d] num"
+check_output "Command-line Argument NAN" "$PROGRAM [-o] num"
 
 # TC8 Normal Run
 timeout 5 $PROGRAM 7 > $OUT
