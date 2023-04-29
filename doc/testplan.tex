@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\title{Fibonacci - Test Plan}
+\author{(Rob Meyers, James Viner, Dakota Kellogg)}
+\date{}
+
+% Referenced https://stackoverflow.com/a/21344989
+\newcommand{\code}[1]{\textcolor{cyan}{\texttt{#1}}}
+
+\usepackage{xcolor}
+% Referenced https://tex.stackexchange.com/a/351969
+\usepackage{fancyvrb}
+
+\begin{document}
+
+\maketitle
+
+\section*{Project Summary}
+The task is to write a program in x86 assembly language that uses the
+first command-line parameter as a number N from 0 through 100. The
+program should print out F(N), in hexadecimal.
+
+
+
+
+\section*{Automated Test Cases}
+Automated tests may be executed with \code{make check}.
+If the tests don't run, ensure that the executable bit is set on
+\code{test/check.sh}.
+
+
+
+\section*{Common Test Cases}
+
+\subsubsection{TC1: Installation}
+Prerequisites: \code{fibonacci} directory does not already exist
+\begin{enumerate}
+	\item \code{git clone git@git.umbc.tc:tdqc/tdqc12/jviner/fibonacci.git}
+	\item \code{cd fibonacci}
+\end{enumerate}
+Expected: \code{fibonacci} directory is created
+
+
+\subsubsection{TC2: Correct Branch}
+Prerequisites: In the project's directory
+\begin{enumerate}
+	\item \code{git branch}
+\end{enumerate}
+Expected: \code{main} is default branch
+
+
+\subsubsection{TC3: Build Cleaning}
+Prerequisites: In the project's directory
+\begin{enumerate}
+	\item \code{make}
+	\item \code{make clean}
+	\item \code{ls fibonacci}
+\end{enumerate}
+Expected: No such file or directory error
+
+
+\subsubsection{TC4: Build Explicit}
+Prerequisites: In the project's directory; \code{make clean}
+\begin{enumerate}
+	\item \code{make fibonacci}
+	\item \code{ls fibonacci}
+\end{enumerate}
+Expected: \code{fibonacci} executable is listed
+
+
+\subsubsection{TC5: Build Implicit}
+Prerequisites: In the project's directory; \code{make clean}
+\begin{enumerate}
+	\item \code{make}
+	\item \code{ls fibonacci}
+\end{enumerate}
+Expected: \code{fibonacci} executable is listed
+
+
+\subsubsection{TC6: No Command-line Arguments}
+Prerequisites: In the project's directory; \code{make}
+\begin{enumerate}
+	\item \code{./fibonacci}
+	\item \code{echo \$?}
+\end{enumerate}
+Expected: Program exits with usage error and error code
+
+
+\subsubsection{TC7: Invalid Command-line Arguments}
+Prerequisites: In the project's directory; \code{make}
+\begin{enumerate}
+	\item \code{./fibonacci -2}
+	\item \code{echo \$?}
+\end{enumerate}
+Expected: Program exits with usage error and error code
+
+
+\subsubsection{TC8: Normal Run}
+Prerequisites: In the project's directory; \code{make}
+\begin{enumerate}
+	\item \code{./fibonacci 7}
+	\item \code{echo \$?}
+\end{enumerate}
+Expected: Program runs, outputs \code{0xd}, and exits normally
+
+
+\subsubsection{TC9: Octal Output Option}
+Prerequisites: In the project's directory; \code{make}
+\begin{enumerate}
+	\item \code{./fibonacci -o 7}
+	\item \code{echo \$?}
+\end{enumerate}
+Expected: Program runs, outputs \code{0o15}, and exits normally
+
+
+\subsubsection{TC10: Decimal Output Option}
+Prerequisites: In the project's directory; \code{make}
+\begin{enumerate}
+	\item \code{./fibonacci -d 7}
+	\item \code{echo \$?}
+\end{enumerate}
+Expected: Program runs, outputs \code{13}, and exits normally
+
+
+
+\end{document}

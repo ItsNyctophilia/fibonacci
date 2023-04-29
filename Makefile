@@ -2,11 +2,11 @@ ASFLAGS += -W
 
 .DEFAULT_GOAL := fibonacci
 
-# If this doesn't run, check the executable bit on test.bash
-#.PHONY: check
-#check: fibonacci
-#check:
-#	./test/test.bash
+# If this doesn't run, check the executable bit on check.sh
+.PHONY: check
+check: fibonacci
+check:
+	./test/check.sh
 
 .PHONY: clean
 clean:
