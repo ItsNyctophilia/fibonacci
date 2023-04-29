@@ -1,0 +1,28 @@
+\documentclass[11pt]{report}
+\usepackage[scaled]{helvet}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\renewcommand\familydefault{\sfdefault}
+\pagenumbering{gobble}
+\begin{document}
+
+\title{Post-project Writeup - Fibonacci}
+\author{James Viner}
+\date{} %Remove date
+
+\maketitle
+
+\doublespacing
+
+\section*{Project Summary}
+The task was to create an x86 assembly program that prints the given output of the fibonacci sequence for a number passed on the command line in hexadecimal format.
+\section*{Challenges}
+Coding in assembly introduces some interesting challenges that just aren't present when working with a higher level language like C or especially Python. The neat thing is that some tricks are easier, like bit manipulation and masking or creating my own pseudo-bignum functionality by combining two registers into one large register. Trying to get functional decimal output for those larger numbers proved to be extremely difficult and finding information online of people tackling similar problems was rough, and we ended up calling it without the feature entirely. Still octal didn't prove that bad and was a nice challenge as well.
+\pagebreak
+\section*{Successes}
+Calls to library functions weren't that bad after I got the syntax down, honestly, and there was definitely some novelty in moving values from register to register and making sure that the stack was properly pushed and popped down before returning. I'd say assembly makes for a relatively fun coding experience even if sitting down and reading it often induces a headache and causes my eyes to glaze over if it isn't thoroughly commented. Even reading some of the more verbosely commented pieces can be rough when the instructions people use get fancy.
+\section*{Lessons Learned}
+Assembly is rough and very low level and very few things are free. Just ensuring that my conditionals were going to the correct places was more difficult than expected, but I'm definitely getting more used to the syntax with each assignment, and this is no exception. I think that's the trick anyhow, right? Just learn the tricks and general themes and new languages are just different syntax, same basic concepts. I hope.
+\end{document}
+
