@@ -26,12 +26,12 @@ num_clamp_err_str:
 
 	.globl	main
 main:
+	push	rsi				# preserve argv[0] on stack
 	cmp	rdi, 2				# argc == 2 ?
 	jg	invocation_err			# case: argc > 2
 	jl	invocation_err			# case: argc < 2
 	mov	rdi, QWORD PTR [rsi+8]		
 	mov	rbx, rdi
-	push	rsi				# preserve argv[0] on stack
 	sub	rsp, 8				# Create temp pointer on stack
 	mov	rsi, rsp			# rsp points to rsi
 	mov	rdx, 10			# base 10 conversion
