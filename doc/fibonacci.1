@@ -1,0 +1,29 @@
+.TH FIBONACCI 1 "April 2023" "1.0" "fibonacci man page"
+.SH NAME
+fibonacci - prints a given number of the fibonacci sequence
+
+.SH SYNOPSIS
+fibonacci [-o]
+.OP options
+
+.SH DESCRIPTION
+fibonacci is a program that prints out a given number in the fibonacci
+sequence in hexadecimal or octal format.
+
+.SH OPTIONS
+.TP
+.B -o
+Prints the output in octal instead of hexadecimal.
+
+.SH RETURN VALUE
+fibonacci returns one of the following codes:
+.TP
+.B 0
+if the program ran successfully.
+.TP
+.B 1
+if the program was invoked improperly.
+.TP
+.B 2
+if the program was invoked with numbers outside of the accepted range.
+
