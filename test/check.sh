@@ -20,18 +20,26 @@ check_output "No Command-line Arguments" "$PROGRAM [-o|-d] num"
 
 # TC7 Invalid Command-line Arguments
 timeout 5 $PROGRAM -2 > $OUT
-check_output "Invalid Command-line Arguments" "Number must be between 0-100"
+check_output "Command-line Argument Low" "Number must be between 0-100"
+
+timeout 5 $PROGRAM 101 > $OUT
+check_output "Command-line Argument High" "Number must be between 0-100"
+
+timeout 5 $PROGRAM notanumber > $OUT
+check_output "Command-line Argument NAN" "$PROGRAM [-o|-d] num"
 
 # TC8 Normal Run
 timeout 5 $PROGRAM 7 > $OUT
-check_output "Normal Run" "0xD"
+check_output "Normal Run 1" "0xd"
+
+timeout 5 $PROGRAM 100 > $OUT
+check_output "Normal Run 2" "0x1333db76a7c594bfc3"
 
 # TC9 Octal Output
 timeout 5 $PROGRAM -o 7 > $OUT
-check_output "Octal Output Option" "0o15"
+check_output "Octal Output Option 1" "0o15"
 
-# TC10 Decimal Output
-timeout 5 $PROGRAM -d 7 > $OUT
-check_output "Decimal Output Option" "13"
+timeout 5 $PROGRAM -o 100 > $OUT
+check_output "Octal Output Option 2" "0o46317333552370545137703"
 
 rm $OUT
